@@ -38,8 +38,8 @@ export const Header = () => {
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <div className="flex cursor-pointer items-center gap-2 rounded-3xl bg-white py-1 pl-1 pr-3">
-              {user && (
+            {user && (
+              <div className="flex cursor-pointer items-center gap-2 rounded-3xl bg-white py-1 pl-1 pr-3">
                 <>
                   <Image
                     src={user.picture}
@@ -50,8 +50,8 @@ export const Header = () => {
                   />
                   <p>{user.name}</p>
                 </>
-              )}
-            </div>
+              </div>
+            )}
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-[9rem]">
             <DropdownMenuItem className="cursor-pointer">
