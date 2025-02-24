@@ -1,12 +1,27 @@
 "use client";
 
-import { BellRing, MessageSquareText, User } from "lucide-react";
 import { SidebarTrigger } from "@/components/sidebar/sidebarTrigger/SidebarTrigger";
-import { useGlobalStore } from "@/store/store";
+import { useAuthContext } from "@/providers/AuthProvider";
+import { BellRing, LogOut, MessageSquareText } from "lucide-react";
+import Image from "next/image";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
+import { useRouter } from "next/navigation";
 
 export const Header = () => {
   // hooks
-  const { user } = useGlobalStore();
+  const { user } = useAuthContext();
+  const router = useRouter();
+
+  // methods
+  async function handleLogout() {
+    await fetch("/api/logout");
+    router.replace("/sign-in");
+  }
 
   return (
     <header className="flex items-center justify-between px-4 py-3">
@@ -21,10 +36,35 @@ export const Header = () => {
           <BellRing size={18} />
         </button>
 
-        <button className="flex h-9 items-center gap-3 rounded-3xl bg-white px-3">
-          <User size={18} className="flex-shrink-0" />
-          <p>{user?.email ?? "johndoe@mail.domain"}</p>
-        </button>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <div className="flex cursor-pointer items-center gap-2 rounded-3xl bg-white py-1 pl-1 pr-3">
+              {user && (
+                <>
+                  <Image
+                    src={user.picture}
+                    alt="user-image"
+                    width={32}
+                    height={32}
+                    className="rounded-full"
+                  />
+                  <p>{user.name}</p>
+                </>
+              )}
+            </div>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-[9rem]">
+            <DropdownMenuItem className="cursor-pointer">
+              <button
+                className="flex items-center gap-2"
+                onClick={handleLogout}
+              >
+                <LogOut size={18} />
+                Logout
+              </button>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </header>
   );

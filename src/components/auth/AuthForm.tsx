@@ -8,7 +8,6 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
-import { useGlobalStore } from "@/store/store";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Loader } from "lucide-react";
@@ -22,14 +21,13 @@ export const AuthForm = ({ authType }: IProps) => {
   const [loading, setLoading] = useState(false);
 
   // hooks
-  const { setUser } = useGlobalStore();
   const router = useRouter();
 
   const googleLogin = useGoogleLogin({
     flow: "auth-code",
     onSuccess: async (codeResponse) => {
       setLoading(true);
-      
+
       const res = await fetch("/api/auth/google-login", {
         method: "POST",
         body: JSON.stringify({ code: codeResponse.code }),
@@ -38,7 +36,6 @@ export const AuthForm = ({ authType }: IProps) => {
       const userInfo = await res.json();
 
       if (userInfo) {
-        setUser(userInfo);
         router.replace("/dashboard/overview");
       }
 

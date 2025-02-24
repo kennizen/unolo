@@ -298,10 +298,10 @@ export const DashboardData = () => {
           </Card.CardHeader>
           <Card.CardContent>
             <div className="flex flex-col gap-2">
-              <p className="relative text-3xl font-semibold after:absolute after:bottom-1 after:text-sm after:content-['🡡0%']">
+              <p className="relative text-3xl font-semibold after:absolute after:bottom-1 after:text-sm after:content-['▲0%']">
                 0
               </p>
-              <Badge className="w-fit">0 Yesterday</Badge>
+              <Badge className="w-fit bg-gray-700">0 Yesterday</Badge>
             </div>
           </Card.CardContent>
         </Card>
@@ -311,10 +311,10 @@ export const DashboardData = () => {
           </Card.CardHeader>
           <Card.CardContent>
             <div className="flex flex-col gap-2">
-              <p className="relative text-3xl font-semibold after:absolute after:bottom-1 after:text-sm after:content-['🡡400%']">
+              <p className="relative text-3xl font-semibold after:absolute after:bottom-1 after:text-sm after:content-['▲400%']">
                 5
               </p>
-              <Badge className="w-fit">1 Yesterday</Badge>
+              <Badge className="w-fit bg-gray-700">1 Yesterday</Badge>
             </div>
           </Card.CardContent>
         </Card>
@@ -324,10 +324,10 @@ export const DashboardData = () => {
           </Card.CardHeader>
           <Card.CardContent>
             <div className="flex flex-col gap-2">
-              <p className="relative text-3xl font-semibold after:absolute after:bottom-1 after:text-sm after:content-['🡡0%']">
+              <p className="relative text-3xl font-semibold after:absolute after:bottom-1 after:text-sm after:content-['▲0%']">
                 0
               </p>
-              <Badge className="w-fit">0 Yesterday</Badge>
+              <Badge className="w-fit bg-gray-700">0 Yesterday</Badge>
             </div>
           </Card.CardContent>
         </Card>
@@ -337,10 +337,10 @@ export const DashboardData = () => {
           </Card.CardHeader>
           <Card.CardContent>
             <div className="flex flex-col gap-2">
-              <p className="relative text-3xl font-semibold after:absolute after:bottom-1 after:text-sm after:content-['🡡0%']">
+              <p className="relative text-3xl font-semibold after:absolute after:bottom-1 after:text-sm after:content-['▲0%']">
                 0
               </p>
-              <Badge className="w-fit">0 Yesterday</Badge>
+              <Badge className="w-fit bg-gray-700">0 Yesterday</Badge>
             </div>
           </Card.CardContent>
         </Card>

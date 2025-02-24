@@ -17,6 +17,7 @@ export async function POST(req: NextRequest) {
     const res = await fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
       method: "GET",
       headers: { Authorization: `Bearer ${tokens.access_token}` },
+      next: { revalidate: 10 },
     });
 
     const userData = await res.json();
@@ -24,6 +25,7 @@ export async function POST(req: NextRequest) {
     cookies().set(
       "ACCESS_TOKEN",
       JSON.stringify({
+        idToken: tokens.id_token,
         token: tokens.access_token,
         expiry: tokens.expiry_date,
       }),

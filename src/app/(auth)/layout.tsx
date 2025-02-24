@@ -28,7 +28,6 @@ const layout = ({ children }: IProps) => {
               alt="img"
               width={900}
               height={650}
-              unoptimized
               className="w-full"
             />
             <div className="mt-6 flex flex-col gap-3 px-14 lg:px-[150px]">

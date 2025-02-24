@@ -1,4 +1,5 @@
 import { MainLayout } from "@/layouts/MainLayout";
+import { AuthProvider } from "@/providers/AuthProvider";
 import { ReactNode } from "react";
 
 interface IProps {
@@ -6,7 +7,11 @@ interface IProps {
 }
 
 const layout = ({ children }: IProps) => {
-  return <MainLayout>{children}</MainLayout>;
+  return (
+    <AuthProvider>
+      <MainLayout>{children}</MainLayout>
+    </AuthProvider>
+  );
 };
 
 export default layout;
